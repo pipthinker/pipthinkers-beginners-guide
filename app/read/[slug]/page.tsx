@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 import styles from "../../page.module.css";
 import { CHAPTERS } from "../../content/chapters";
 
-type PageProps = {
-  params: { slug: string };
+type Props = {
+  params: Promise<{ slug: string }>;
 };
 
-export default async function ReadPage({ params }: PageProps) {
-  const slug = params.slug;
+export default async function ReadPage({ params }: Props) {
+  const { slug } = await params;
 
   const idx = CHAPTERS.findIndex((c) => c.slug === slug);
   if (idx === -1) return notFound();
