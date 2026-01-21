@@ -25,7 +25,7 @@ export const minikitConfig = {
 
     // Assets (keep these filenames as they exist in /public for now)
     screenshotUrls: ["/screenshot-portrait.png"],
-    iconUrl: "/blue-icon.png",
+    iconUrl: "/pipthinkers-icon-512.png",
     splashImageUrl: "/blue-hero.png",
     splashBackgroundColor: "#000000",
     heroImageUrl: "/hero.png",
