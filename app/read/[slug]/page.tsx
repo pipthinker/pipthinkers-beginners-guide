@@ -1,14 +1,13 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import styles from "../../page.module.css";
 import { CHAPTERS } from "../../content/chapters";
+import ReaderClient from "./readerClient";
 
-export default async function ReadPage({
+export default function ReadPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const idx = CHAPTERS.findIndex((c) => c.slug === slug);
   if (idx === -1) return notFound();
@@ -17,50 +16,20 @@ export default async function ReadPage({
   const prev = idx > 0 ? CHAPTERS[idx - 1] : null;
   const next = idx < CHAPTERS.length - 1 ? CHAPTERS[idx + 1] : null;
 
+  // simple estimate: 200 words per minute
+  const wordCount = chapter.sections
+    .map((s) => `${s.heading ?? ""} ${s.body}`.trim())
+    .join(" ")
+    .split(/\s+/).filter(Boolean).length;
+
+  const minutes = Math.max(1, Math.round(wordCount / 200));
+
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.card}>
-          <h1 className={styles.title}>{chapter.title}</h1>
-
-          <div className={styles.content}>
-            {chapter.sections.map((s, i) => (
-              <div key={i} className={styles.section}>
-                {s.heading ? <h2 className={styles.h2}>{s.heading}</h2> : null}
-                <p className={styles.p}>{s.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className={styles.actions}>
-            {prev ? (
-              <Link className={styles.secondaryBtn} href={`/read/${prev.slug}`}>
-                ← Previous
-              </Link>
-            ) : (
-              <span />
-            )}
-
-            <Link className={styles.secondaryBtn} href="/chapters">
-              Contents
-            </Link>
-
-            {next ? (
-              <Link className={styles.primaryBtn} href={`/read/${next.slug}`}>
-                Next →
-              </Link>
-            ) : (
-              <span />
-            )}
-          </div>
-
-          <div className={styles.actions}>
-            <Link className={styles.secondaryBtn} href="/">
-              Back Home
-            </Link>
-          </div>
-        </div>
-      </div>
-    </main>
+    <ReaderClient
+      chapter={chapter}
+      minutes={minutes}
+      prevSlug={prev?.slug ?? null}
+      nextSlug={next?.slug ?? null}
+    />
   );
 }
