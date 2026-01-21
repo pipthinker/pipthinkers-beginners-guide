@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CHAPTERS } from "../../content/chapters";
 import styles from "../../page.module.css";
+import { CHAPTERS } from "../../content/chapters";
 
-export default function ReadPage({
+export default async function ReadPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const idx = CHAPTERS.findIndex((c) => c.slug === slug);
   if (idx === -1) return notFound();
