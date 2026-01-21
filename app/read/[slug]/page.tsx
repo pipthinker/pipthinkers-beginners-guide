@@ -3,8 +3,14 @@ import { notFound } from "next/navigation";
 import styles from "../../page.module.css";
 import { CHAPTERS } from "../../content/chapters";
 
-export default function ReadPage({ params }: { params: { slug: string } }) {
-  const idx = CHAPTERS.findIndex((c) => c.slug === params.slug);
+type PageProps = {
+  params: { slug: string };
+};
+
+export default async function ReadPage({ params }: PageProps) {
+  const slug = params.slug;
+
+  const idx = CHAPTERS.findIndex((c) => c.slug === slug);
   if (idx === -1) return notFound();
 
   const chapter = CHAPTERS[idx];
