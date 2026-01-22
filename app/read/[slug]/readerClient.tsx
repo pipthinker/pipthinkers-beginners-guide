@@ -45,18 +45,20 @@ export default function ReaderClient({
 
   return (
     <main className={styles.main}>
+      {/* progress */}
       <div className={styles.progressTrack}>
         <div className={styles.progressBar} style={{ width: `${progress}%` }} />
       </div>
 
       <div className={`${styles.container} ${styles.readerWrap}`}>
         <div className={styles.card}>
+          {/* header */}
           <div className={styles.readerHeader}>
             <div>
               <h1 className={styles.title}>{chapter.title}</h1>
 
               <div className={styles.readerMeta} style={{ marginTop: 8 }}>
-                <span className={styles.chip}>{minutes} min read</span>
+                <span className={styles.chip}>{minutes} min</span>
                 <span className={styles.chip}>{Math.round(progress)}%</span>
               </div>
             </div>
@@ -86,6 +88,7 @@ export default function ReaderClient({
             </div>
           </div>
 
+          {/* content */}
           <div
             className={`${styles.content} ${styles.readerContent}`}
             style={{ fontSize: `${fontScale}rem` }}
@@ -100,6 +103,7 @@ export default function ReaderClient({
         </div>
       </div>
 
+      {/* sticky nav */}
       <div className={styles.stickyNav}>
         <div className={styles.stickyInner}>
           {prevSlug ? (
