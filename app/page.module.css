@@ -115,3 +115,28 @@
   line-height: 1.6;
   color: #e5e7eb;
 }
+/* Reader UI */
+.readerWrap { padding-bottom: 110px; }
+
+.progressTrack{
+  position:fixed;top:0;left:0;right:0;height:4px;z-index:50;
+  background:rgba(255,255,255,0.08);
+}
+.progressBar{height:100%;background:rgba(255,255,255,0.9);transition:width 120ms linear;}
+
+.readerHeader{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px;}
+.readerMeta{display:flex;gap:10px;align-items:center;opacity:.88;font-size:.95rem;}
+.chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);}
+
+.fontControls{display:flex;gap:8px;}
+.fontBtn{padding:10px 12px;}
+
+.readerContent{line-height:1.75;letter-spacing:.1px;}
+
+.stickyNav{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;padding:14px 16px;
+  background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.stickyInner{max-width:900px;margin:0 auto;display:flex;gap:10px;justify-content:space-between;align-items:center;}
+.navSpacer{width:1px;opacity:0;}
