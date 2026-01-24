@@ -1,58 +1,19 @@
 @layer base {
   :root {
-    /* Light mode (default) */
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --text: #1f2933;
-    --muted: #6b7280;
-    --border: rgba(0, 0, 0, 0.06);
-    --accent: #f7931a;
-
-    /* keep these for compatibility */
-    --background: var(--bg);
-    --foreground: var(--text);
-  }
-
-  /* If user prefers dark AND we have not forced light */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0e0e11;
-      --surface: #141418;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: rgba(255, 255, 255, 0.08);
-      --accent: #f7931a;
-
-      --background: var(--bg);
-      --foreground: var(--text);
-    }
-  }
-
-  /* Manual override (we’ll hook this to a toggle next) */
-  html[data-theme="light"] {
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --text: #1f2933;
-    --muted: #6b7280;
-    --border: rgba(0, 0, 0, 0.06);
-    --accent: #f7931a;
-
-    --background: var(--bg);
-    --foreground: var(--text);
-    color-scheme: light;
+    --background: #ffffff;
+    --foreground: #171717;
   }
 
   html[data-theme="dark"] {
-    --bg: #0e0e11;
-    --surface: #141418;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --border: rgba(255, 255, 255, 0.08);
-    --accent: #f7931a;
-
-    --background: var(--bg);
-    --foreground: var(--text);
+    --background: #0a0a0a;
+    --foreground: #ededed;
     color-scheme: dark;
+  }
+
+  html[data-theme="light"] {
+    --background: #ffffff;
+    --foreground: #171717;
+    color-scheme: light;
   }
 
   html,
@@ -61,24 +22,12 @@
     overflow-x: hidden;
   }
 
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
   body {
     color: var(--foreground);
     background: var(--background);
     font-family: var(--font-inter), sans-serif;
-    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
   }
 
   code {
@@ -91,7 +40,18 @@
   }
 
   html[data-theme="dark"] code {
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
