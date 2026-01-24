@@ -5,29 +5,36 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.card}>
-          <div className={styles.badge}>Academy</div>
+        <section className={styles.hero}>
           <h1 className={styles.title}>Crypto 101</h1>
-          
+
           <p className={styles.subtitle}>
-            A calm, beginner-friendly guide to understanding the world of 
-            Web3 and Decentralized Finance without the noise, hype, or pressure.
+            A calm, beginner-friendly guide to understanding crypto without noise,
+            hype, or pressure.
           </p>
 
+          <div className={styles.quoteWrap}>
+            <p className={styles.quote}>
+              Move slowly. Learn the basics. Protect your keys.
+            </p>
+          </div>
+
           <div className={styles.actions}>
-            <Link href="/read" className={styles.primaryBtn}>
+            <Link className={styles.primaryBtn} href="/chapters">
               Start Reading
             </Link>
-            <Link href="/chapters" className={styles.secondaryBtn}>
-              View Chapters
+
+            <Link className={styles.secondaryBtn} href="/chapters">
+              Contents
             </Link>
           </div>
-        </div>
+        </section>
       </div>
 
-      <div className={styles.credit}>
-        Content curated by <span>Pipthinker</span>
-      </div>
+      <footer className={styles.footer}>
+        <div className={styles.credit}>Content by Pipthinker</div>
+        <div className={styles.hint}>Read like a book. One chapter at a time.</div>
+      </footer>
     </main>
   );
 }
