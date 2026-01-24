@@ -1,0 +1,71 @@
+.main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(1200px 600px at 20% 20%, rgba(99, 102, 241, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(16, 185, 129, 0.18), transparent 55%),
+    #05070f;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.card {
+  border-radius: 18px;
+  padding: 28px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+}
+
+.title {
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 55ch;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  background: rgba(99, 102, 241, 0.95);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.primaryBtn:active {
+  transform: translateY(1px);
+}
+
+.credit {
+  position: fixed;
+  left: 14px;
+  bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.38);
+  user-select: none;
+}
