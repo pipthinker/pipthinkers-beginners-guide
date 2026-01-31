@@ -2,12 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CHAPTERS } from "../../content/chapters";
 
-export default function ReadPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = params;
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function ReadPage({ params }: Props) {
+  const { slug } = await params;
 
   const idx = CHAPTERS.findIndex((c) => c.slug === slug);
   if (idx === -1) return notFound();
