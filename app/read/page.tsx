@@ -1,13 +1,18 @@
-type ReadPageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function ReadPage({ params }: ReadPageProps) {
+export default function ReadPage() {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Chapter: {params.slug}</h1>
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      <div>
+        <h1>Read</h1>
+        <p>Reading page placeholder.</p>
+      </div>
     </main>
   );
 }
