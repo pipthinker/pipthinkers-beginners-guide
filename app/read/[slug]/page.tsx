@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import { CHAPTERS } from "@/app/content/chapters";
 
-type PageProps = {
-  params: { slug: string };
+type Props = {
+  params: Promise<{ slug: string }>;
 };
 
-export default function ReadPage({ params }: PageProps) {
-  const { slug } = params;
+export default async function ReadPage({ params }: Props) {
+  const { slug } = await params;
 
   const chapter = CHAPTERS.find((c) => c.slug === slug);
   if (!chapter) return notFound();
